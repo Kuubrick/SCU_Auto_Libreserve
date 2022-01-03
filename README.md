@@ -4,7 +4,7 @@
 
 # 使用说明
 
-* 通过pip install requirement.txt安装必要的包
+* 安装必要的包
 * 运行web_init.py即可搭建一个四川大学图书馆自动预约的网站(默认端口是5001)
 * 运行autoReserve.py即可自动为csv文件里面的用户进行预约
 * 然后将autoReserve.py放在crontab里，将info.csv文件的路径改成绝对路径即可自动预约，我部署的服务器是每小时的第15分钟自动预约
