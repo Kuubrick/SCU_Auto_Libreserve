@@ -7,6 +7,7 @@
 * 通过pip install requirement.txt安装必要的包
 * 运行web_init.py即可搭建一个四川大学图书馆自动预约的网站(默认端口是5001)
 * 运行autoReserve.py即可自动为csv文件里面的用户进行预约
+* 然后讲autoReserve.py放在crontab里即可自动打卡，我部署的服务器是每小时的第15分钟自动打卡
 
 # 现成网站
 
@@ -22,4 +23,7 @@ http://119.3.162.117:5001/
   * 添加查重
   * 修改预定的图书馆
 * 如果您有兴趣欢迎进行pull request或者在issue区讨论，我会及时浏览
+# 特别鸣谢
+https://www.bilibili.com/video/BV1vZ4y1X7j5
+我是从这个B站视频看见的，然后自己扩充了一下，感谢学长
 
