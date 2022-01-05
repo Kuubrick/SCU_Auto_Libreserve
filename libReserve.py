@@ -124,7 +124,7 @@ def get_name(res):
 
 
 if __name__ == '__main__':
-    stid = '2019141530134'
-    pwd = '220412'
+    stid = '20'
+    pwd = ''
     make_lib_resv(stid, pwd, lib=1)
     print(get_hint_info())
