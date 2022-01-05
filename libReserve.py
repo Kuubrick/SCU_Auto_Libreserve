@@ -64,6 +64,7 @@ def make_lib_resv(stid, pwd, lib):
         hint_info.append('不在预约时间')
         print('不在预约时间')
         return
+   
     if '您已预约' in ret.text:
         reserved_num = is_reserved(ret)
         print('您已预约' + list_dic_lib[reserved_num]['lib'])
