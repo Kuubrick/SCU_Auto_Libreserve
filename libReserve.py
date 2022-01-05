@@ -56,15 +56,14 @@ def make_lib_resv(stid, pwd, lib):
     print('您好,' + get_name(ret)[0])
     hint_info.append('您好,' + get_name(ret)[0])
     if '您已在馆' in ret.text:
-        hint_info.append('您已在馆')
-        print('您已在馆')
-        # is_in_lib(ret)
+        num_lib = is_in_lib(ret)
+        print('您已在' + list_dic_lib[num_lib]['lib'])
+        hint_info.append('您已在' + list_dic_lib[num_lib]['lib'])
         return
     if '不在预约时间' in ret.text:
         hint_info.append('不在预约时间')
         print('不在预约时间')
         return
-   
     if '您已预约' in ret.text:
         reserved_num = is_reserved(ret)
         print('您已预约' + list_dic_lib[reserved_num]['lib'])
@@ -101,8 +100,11 @@ def is_succeed(session, lib):
 
 def is_in_lib(res):
     tree = etree.HTML(res.text)
-    name_lib = tree.xpath('//span[contains(text(),"您已在馆")]/../div[1]/text()')
-    print(name_lib)
+    for dict in list_dic_lib:
+        xpath = '//*[@id="remander-' + dict['str'] + '"]/span/text()'
+        if '您已在馆' in tree.xpath(xpath)[0]:
+            return list_dic_lib.index(dict)
+    return -1
 
 
 def get_hint_info():
@@ -124,7 +126,7 @@ def get_name(res):
 
 
 if __name__ == '__main__':
-    stid = '20'
-    pwd = ''
+    stid = '2019141530134'
+    pwd = '220412'
     make_lib_resv(stid, pwd, lib=1)
     print(get_hint_info())
