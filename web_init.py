@@ -41,12 +41,13 @@ def web_init():
     stid = inputs['stid']
     pwd = inputs['pwd']
     lib = inputs['lib']
-    make_lib_resv(stid, pwd, lib)
-    insert(stid, pwd, lib)
-    hint_info = get_hint_info() + '\n添加到数据库成功'
+    status = make_lib_resv(stid, pwd, lib)
+    hint_info = get_hint_info()
+    if status:
+        insert(stid, pwd, lib)
+        hint_info = get_hint_info() + '\n添加到数据库成功'
     put_info(hint_info)
     clean_hint_info()
-    hint_info = ''
 
 
 if __name__ == '__main__':

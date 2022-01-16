@@ -76,7 +76,7 @@ def make_lib_resv(stid, pwd, lib):
             s.get(list_url[lib])
     else:
         ret_after_appointment = s.get(list_url[lib])
-    is_succeed(s, lib)
+    return is_succeed(s, lib)
 
 
 def is_reserved(ret):
@@ -96,6 +96,8 @@ def is_succeed(session, lib):
     if lib == is_reserved(res):
         hint_info.append(list_dic_lib[lib]['lib'] + '预约成功')
         print(list_dic_lib[lib]['lib'] + '预约成功')
+        return True
+    return False
 
 
 def is_in_lib(res):
