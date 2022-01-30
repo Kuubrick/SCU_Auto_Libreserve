@@ -55,6 +55,10 @@ def make_lib_resv(stid, pwd, lib):
     ret = s.get('http://lib.scu.edu.cn:8088/reservation')
     print('您好,' + get_name(ret)[0])
     hint_info.append('您好,' + get_name(ret)[0])
+    if '今日闭馆' in ret.text:
+        hint_info.append('今日闭馆')
+        print('今日闭馆')
+        return
     if '您已在馆' in ret.text:
         num_lib = is_in_lib(ret)
         print('您已在' + list_dic_lib[num_lib]['lib'])
